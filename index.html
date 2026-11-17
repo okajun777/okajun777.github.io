@@ -11,23 +11,13 @@
 <meta property="og:url" content="https://okajun777.github.io/">
 <meta name="twitter:card" content="summary">
 
-<!-- ===== Google アナリティクス4 =====
-     GA4 の「測定ID」（G- から始まる文字列）を下の GA_ID に入れるだけで計測が始まります。 -->
-<script>
-  window.GA_ID = "G-XXXXXXXXXX";
-  (function () {
-    var id = window.GA_ID;
-    if (!/^G-[A-Z0-9]+$/.test(id) || id === "G-XXXXXXXXXX") return;
-    var s = document.createElement("script");
-    s.async = true;
-    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
-    gtag("js", new Date());
-    gtag("config", id);
-  })();
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WJ7WBB2T');</script>
+<!-- End Google Tag Manager -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,6 +100,10 @@ footer{text-align:center}
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ7WBB2T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div class="wrap">
 
   <section class="vf" aria-label="プロフィール">
@@ -205,12 +199,13 @@ footer{text-align:center}
 </div>
 
 <script>
-  // リンクのクリックを GA4 に「link_click」イベントとして送る（GA_ID 未設定なら何もしない）
+  // リンクのクリックを GTM の dataLayer に「link_click」イベントとして送る
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("a[href]");
-    if (!a || typeof window.gtag !== "function") return;
+    if (!a) return;
     var sec = a.closest("article[id]");
-    window.gtag("event", "link_click", {
+    (window.dataLayer = window.dataLayer || []).push({
+      event: "link_click",
       link_text: a.textContent.trim(),
       link_url: a.href,
       link_section: sec ? sec.id : (a.closest(".chips") ? "nav" : "top")
