@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>okajun777 | Photos</title>
+<meta name="description" content="okajun777 の写真ギャラリー。">
+<meta property="og:title" content="okajun777 | Photos">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://okajun777.github.io/photos.html">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WJ7WBB2T');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=JetBrains+Mono:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#EEF1EF; --panel:#FFFFFF; --ink:#141917; --mute:#5B6661; --line:#CDD5D1; --accent:#C98A00;
+  --f-display:"Dela Gothic One","Zen Kaku Gothic New",system-ui,sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0F1312; --panel:#171D1B; --ink:#E7ECE9; --mute:#93A09A; --line:#2A3330; --accent:#F2B21B; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-top:calc(24px + env(safe-area-inset-top,0px));padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.back{font-family:var(--f-mono);font-size:12px;text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel)}
+.back:hover{border-color:var(--accent);color:var(--accent)}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,6vw,36px);line-height:1.2;margin:0}
+.grid{columns:3 260px;column-gap:10px}
+.grid button{display:block;width:100%;margin:0 0 10px;padding:0;border:0;background:var(--panel);border-radius:8px;overflow:hidden;cursor:zoom-in;break-inside:avoid}
+.grid img{display:block;width:100%;height:auto}
+.empty{border:1px dashed var(--line);border-radius:14px;padding:40px 20px;text-align:center;color:var(--mute)}
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1600px);max-height:92vh}
+dialog::backdrop{background:rgba(0,0,0,.88)}
+dialog img{display:block;max-width:min(96vw,1600px);max-height:92vh;width:auto;height:auto;border-radius:6px}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ7WBB2T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="./">← LINKS</a>
+    <span class="mono" id="count">PHOTOS</span>
+  </div>
+  <h1>Photos</h1>
+  <div id="grid" class="grid" aria-live="polite"></div>
+  <p id="empty" class="empty" hidden>写真は準備中です。</p>
+</div>
+<dialog id="viewer" aria-label="写真"><img id="big" alt=""></dialog>
+
+<script>
+  var grid = document.getElementById("grid");
+  var viewer = document.getElementById("viewer");
+  var big = document.getElementById("big");
+  fetch("photos.json", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .catch(function () { return []; })
+    .then(function (list) {
+      list = Array.isArray(list) ? list : [];
+      document.getElementById("count").textContent = list.length + " PHOTOS";
+      if (!list.length) { document.getElementById("empty").hidden = false; return; }
+      list.forEach(function (p, i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "写真 " + (i + 1) + " を拡大");
+        var img = document.createElement("img");
+        img.src = p.src; img.width = p.w; img.height = p.h;
+        img.loading = "lazy"; img.decoding = "async"; img.alt = "";
+        b.appendChild(img);
+        b.addEventListener("click", function () { big.src = p.src; viewer.showModal(); });
+        grid.appendChild(b);
+      });
+    });
+  viewer.addEventListener("click", function () { viewer.close(); });
+</script>
+</body>
+</html>
