@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>okajun777 | Links</title>
+<meta name="description" content="AI・ガジェット・カメラ・動画・旅行・ドローン・DIY・ボウリング。okajun777 の活動まとめ。">
+<meta property="og:title" content="okajun777 | Links">
+<meta property="og:description" content="AI・ガジェット・カメラ・動画・旅行・ドローン・DIY・ボウリング。okajun777 の活動まとめ。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://okajun777.github.io/">
+<meta name="twitter:card" content="summary">
+
+<!-- ===== Google アナリティクス4 =====
+     GA4 の「測定ID」（G- から始まる文字列）を下の GA_ID に入れるだけで計測が始まります。 -->
+<script>
+  window.GA_ID = "G-XXXXXXXXXX";
+  (function () {
+    var id = window.GA_ID;
+    if (!/^G-[A-Z0-9]+$/.test(id) || id === "G-XXXXXXXXXX") return;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("js", new Date());
+    gtag("config", id);
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=JetBrains+Mono:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: カメラのファインダー(OSD)風。1カラムのリンク集、各ジャンルは「チャンネル」として並ぶ */
+:root{
+  --bg:#EEF1EF; --panel:#FFFFFF; --ink:#141917; --mute:#5B6661; --line:#CDD5D1;
+  --accent:#C98A00; --accent-ink:#1A1300; --rec:#D23A2A;
+  --f-display:"Dela Gothic One","Zen Kaku Gothic New",system-ui,sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0F1312; --panel:#171D1B; --ink:#E7ECE9; --mute:#93A09A; --line:#2A3330;
+  --accent:#F2B21B; --accent-ink:#1A1300; --rec:#FF5A47; color-scheme:dark}}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-top:calc(28px + env(safe-area-inset-top,0px));padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+
+/* ---- viewfinder hero ---- */
+.vf{position:relative;padding:28px 22px 24px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.vf::before,.vf::after,.vf .c1,.vf .c2{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--ink)}
+.vf::before{top:0;left:0;border-right:0;border-bottom:0}
+.vf::after{top:0;right:0;border-left:0;border-bottom:0}
+.vf .c1{bottom:0;left:0;border-right:0;border-top:0}
+.vf .c2{bottom:0;right:0;border-left:0;border-top:0}
+.osd{position:absolute;top:8px;left:30px;right:30px;display:flex;justify-content:space-between}
+.rec{display:inline-flex;align-items:center;gap:6px;color:var(--rec)}
+.rec i{width:8px;height:8px;border-radius:50%;background:var(--rec);animation:blink 1.4s steps(1) infinite}
+@keyframes blink{50%{opacity:.15}}
+@media (prefers-reduced-motion:reduce){.rec i{animation:none}}
+.avatar{width:96px;height:96px;border-radius:50%;margin-top:14px;display:grid;place-items:center;
+  background:var(--panel);border:1px solid var(--line);font-family:var(--f-display);font-size:34px;color:var(--accent);position:relative}
+.avatar::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px dashed var(--line)}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,7vw,34px);line-height:1.2;margin:0;text-wrap:balance}
+.handle{font-family:var(--f-mono);font-size:13px;color:var(--mute);margin-top:-8px}
+.bio{margin:0;max-width:34em;text-wrap:pretty}
+.osd-b{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.osd-b span b{color:var(--ink);font-weight:600}
+
+.ctas{display:flex;flex-direction:column;gap:10px}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 18px;border-radius:999px;
+  background:var(--ink);color:var(--bg);text-decoration:none;font-weight:700;font-size:15px;border:1px solid var(--ink)}
+.cta:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.cta-sub{background:var(--panel);color:var(--ink);border-color:var(--line)}
+
+/* ---- jump chips ---- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chips a{font-family:var(--f-mono);font-size:12px;text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel)}
+.chips a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---- channels ---- */
+.list{display:flex;flex-direction:column;gap:12px}
+.ch{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;display:grid;
+  grid-template-columns:44px 1fr;gap:4px 14px;scroll-margin-top:16px}
+.ch .ic{grid-row:span 2;width:44px;height:44px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--line);color:var(--accent)}
+.ch .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ch header{display:flex;align-items:baseline;justify-content:space-between;gap:10px;min-width:0}
+.ch h2{margin:0;font-size:18px;font-weight:700;line-height:1.3}
+.ch .no{font-family:var(--f-mono);font-size:11px;color:var(--mute);white-space:nowrap}
+.ch p{margin:0;color:var(--mute);font-size:14px;min-width:0}
+.spec{grid-column:1/-1;font-family:var(--f-mono);font-size:11.5px;color:var(--mute);border-top:1px dashed var(--line);padding-top:10px;margin-top:8px;
+  display:flex;flex-wrap:wrap;gap:4px 14px}
+.spec b{color:var(--ink);font-weight:600}
+.links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.links a{font-size:13px;font-weight:500;text-decoration:none;padding:7px 12px;border-radius:8px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:6px}
+.links a::after{content:"↗";font-family:var(--f-mono);font-size:11px;color:var(--mute)}
+.links a:hover{border-color:var(--accent);background:var(--bg)}
+
+footer{text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="vf" aria-label="プロフィール">
+    <span class="c1"></span><span class="c2"></span>
+    <div class="osd mono"><span class="rec"><i></i>REC</span><span>4K · 24P</span></div>
+    <div class="avatar" aria-hidden="true">O</div>
+    <h1>okajun777</h1>
+    <div class="handle">@okajun77777</div>
+    <p class="bio">AIとガジェットで遊び、カメラとドローンで旅を撮って、休日はDIYとボウリング。気になったことは自分で試して、ここにまとめています。</p>
+    <div class="osd-b mono">
+      <span>BASE <b>JAPAN</b></span><span>CH <b>08</b></span><span>ISO <b>好奇心</b></span>
+    </div>
+  </section>
+
+  <div class="ctas">
+    <a class="cta" href="https://www.threads.net/@okajun77777">Threadsでフォローする</a>
+    <a class="cta cta-sub" href="https://www.youtube.com/@okajun777">YouTubeを見る</a>
+    <a class="cta cta-sub" href="https://note.com/okajun77777">noteを読む</a>
+  </div>
+
+  <nav class="chips" aria-label="ジャンル">
+    <a href="#ai">AI</a><a href="#gadget">ガジェット</a><a href="#camera">カメラ</a><a href="#video">動画</a>
+    <a href="#travel">旅行</a><a href="#drone">ドローン</a><a href="#diy">DIY</a><a href="#bowling">ボウリング</a>
+  </nav>
+
+  <div class="list">
+
+    <article class="ch" id="ai">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/><path d="M10 10h4v4h-4z"/></svg></div>
+      <header><h2>AI</h2><span class="no">CH 01</span></header>
+      <p>生成AIの使いこなし、プロンプト、日常と制作の自動化。実際に使ってよかったツールを紹介。</p>
+      <div class="spec"><span>TOOLS <b>Claude / 画像生成</b></span><span>LOG <b>使ってみた</b></span></div>
+      <div class="links"><a href="https://note.com/okajun77777">AI活用まとめ（note）</a></div>
+    </article>
+
+    <article class="ch" id="gadget">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+      <header><h2>ガジェット</h2><span class="no">CH 02</span></header>
+      <p>スマホ、PC周り、便利グッズのレビュー。買ってよかったもの・微妙だったものを正直に。</p>
+      <div class="spec"><span>DESK <b>デスクツアー</b></span><span>REVIEW <b>実機レビュー</b></span></div>
+    </article>
+
+    <article class="ch" id="camera">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      <header><h2>カメラ</h2><span class="no">CH 03</span></header>
+      <p>街歩きスナップと旅の写真。機材、設定、RAW現像のことも。</p>
+      <div class="spec"><span>LENS <b>24–70mm f/2.8</b></span><span>STYLE <b>街歩き・スナップ</b></span></div>
+      <div class="links"><a href="https://okajun777.github.io/hobby-site/">写真ギャラリー</a></div>
+    </article>
+
+    <article class="ch" id="video">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></div>
+      <header><h2>動画</h2><span class="no">CH 04</span></header>
+      <p>Vlogやショート動画の撮影・編集。カラーグレーディングや編集ワークフローも発信。</p>
+      <div class="spec"><span>FMT <b>4K 24p / 縦型</b></span><span>EDIT <b>カット・カラー</b></span></div>
+      <div class="links"><a href="https://www.youtube.com/@okajun777">YouTube</a></div>
+    </article>
+
+    <article class="ch" id="travel">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <header><h2>旅行</h2><span class="no">CH 05</span></header>
+      <p>国内外の旅と散歩の記録。撮影スポット、持ち物、ルートをまとめています。</p>
+      <div class="spec"><span>LAST <b>東京散歩</b></span><span>PACK <b>撮影旅の持ち物</b></span></div>
+      <div class="links"><a href="https://okajun777.github.io/hobby-site/travel.html">旅ログ</a></div>
+    </article>
+
+    <article class="ch" id="drone">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 9 6 6M15 9l3-3M9 15l-3 3M15 15l3 3"/><circle cx="5" cy="5" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/></svg></div>
+      <header><h2>ドローン</h2><span class="no">CH 06</span></header>
+      <p>空撮映像とフライトのノウハウ。機体登録や飛行ルールなど、安全に飛ばすための情報も。</p>
+      <div class="spec"><span>ALT <b>≤ 150m</b></span><span>REG <b>機体登録済</b></span></div>
+      <div class="links"><a href="https://okajun777.github.io/hobby-site/drone.html">ドローンのページ</a></div>
+    </article>
+
+    <article class="ch" id="diy">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M14.5 5.5a4 4 0 0 0 5 5L12 18l-3 3-3-3 3-3 7.5-7.5"/><path d="M3 21l3-3"/></svg></div>
+      <header><h2>DIY</h2><span class="no">CH 07</span></header>
+      <p>撮影機材の収納、デスク周り、家の小さな改造。作り方と材料をセットで紹介。</p>
+      <div class="spec"><span>MAT <b>木材・3Dプリント</b></span><span>TIME <b>週末でできる</b></span></div>
+    </article>
+
+    <article class="ch" id="bowling">
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="10" cy="14" r="7"/><circle cx="8" cy="11" r=".8"/><circle cx="11" cy="10.5" r=".8"/><circle cx="10" cy="13.5" r=".8"/><path d="M18 3c1.5 0 2 1.5 1.5 3s.5 3 .5 5-1 3-2 3-2-1-2-3 1-3.5.5-5S16.5 3 18 3z"/></svg></div>
+      <header><h2>ボウリング</h2><span class="no">CH 08</span></header>
+      <p>スコアの記録、ボールとフォームの研究。マイボール選びの話も。</p>
+      <div class="spec"><span>BALL <b>マイボール</b></span><span>LOG <b>スコア記録</b></span></div>
+      <div class="links"><a href="https://okajun777.github.io/hobby-site/bowling.html">ボウリングのページ</a></div>
+    </article>
+
+  </div>
+
+  <footer><span class="mono">END OF REEL · © okajun777</span></footer>
+</div>
+
+<script>
+  // リンクのクリックを GA4 に「link_click」イベントとして送る（GA_ID 未設定なら何もしない）
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (!a || typeof window.gtag !== "function") return;
+    var sec = a.closest("article[id]");
+    window.gtag("event", "link_click", {
+      link_text: a.textContent.trim(),
+      link_url: a.href,
+      link_section: sec ? sec.id : (a.closest(".chips") ? "nav" : "top")
+    });
+  });
+</script>
+</body>
+</html>
